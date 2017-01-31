@@ -342,6 +342,8 @@ abstract class AbstractRequest implements RequestInterface
 
             return $this->formatCurrency($amount);
         }
+
+        return null;
     }
 
     /**
@@ -399,6 +401,7 @@ abstract class AbstractRequest implements RequestInterface
         if ($currency = Currency::find($this->getCurrency())) {
             return $currency->getNumeric();
         }
+        return null;
     }
 
     /**
