@@ -26,10 +26,16 @@
         "psr-0": { "Omnipay\\Common\\" : "src/" },
         "classmap": ["src/Omnipay/Omnipay.php"]
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/inRESONANCE/omnipay-tests.git"
+        }
+    ],
     "require": {
-        "php": ">=5.3.2",
-        "guzzle/guzzle": "~3.9",
-        "symfony/http-foundation": "~2.1|~3.0"
+        "php": ">=5.5.9",
+        "guzzlehttp/guzzle": "^6.0",
+        "symfony/http-foundation": "3.2.*"
     },
     "require-dev": {
         "omnipay/tests": "~2.0",
