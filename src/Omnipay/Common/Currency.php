@@ -72,6 +72,8 @@ class Currency
         if (isset($currencies[$code])) {
             return new static($code, $currencies[$code]['numeric'], $currencies[$code]['decimals']);
         }
+        
+        return null;
     }
 
     /**
