@@ -451,6 +451,7 @@ class CreditCard
                 return $brand;
             }
         }
+        return null;
     }
 
     /**
