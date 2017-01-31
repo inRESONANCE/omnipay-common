@@ -44,6 +44,7 @@ class Helper
         $explodedStr = explode('_', $str);
 
         if (count($explodedStr) > 1) {
+            $lowercasedStr = array();
             foreach ($explodedStr as $value) {
                 $lowercasedStr[] = strtolower($value);
             }
