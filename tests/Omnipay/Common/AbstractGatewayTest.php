@@ -9,6 +9,11 @@ use Symfony\Component\HttpFoundation\ParameterBag;
 
 class AbstractGatewayTest extends TestCase
 {
+    /**
+     * @var AbstractGateway
+     */
+    protected $gateway;
+
     public function setUp()
     {
         $this->gateway = m::mock('\Omnipay\Common\AbstractGateway')->makePartial();
