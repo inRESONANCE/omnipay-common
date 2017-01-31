@@ -5,7 +5,7 @@
 
 namespace Omnipay\Common;
 
-use Guzzle\Http\ClientInterface;
+use GuzzleHttp\ClientInterface;
 use Omnipay\Common\Exception\RuntimeException;
 use Symfony\Component\HttpFoundation\Request as HttpRequest;
 
@@ -26,7 +26,7 @@ use Symfony\Component\HttpFoundation\Request as HttpRequest;
  *   $gateway = Omnipay::create('ExpressGateway');
  * </code>
  *
- * @see Omnipay\Omnipay
+ * @see \Omnipay\Omnipay
  */
 class GatewayFactory
 {
