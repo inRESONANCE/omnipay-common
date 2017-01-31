@@ -16,7 +16,7 @@ namespace Omnipay\Common\Message;
  * card issuer.
  *
  * @see ResponseInterface
- * @see Omnipay\Common\Issuer
+ * @see \Omnipay\Common\Issuer
  */
 interface FetchIssuersResponseInterface extends ResponseInterface
 {

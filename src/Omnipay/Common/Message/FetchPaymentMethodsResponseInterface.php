@@ -16,7 +16,7 @@ namespace Omnipay\Common\Message;
  * payment method.
  *
  * @see ResponseInterface
- * @see Omnipay\Common\PaymentMethod
+ * @see \Omnipay\Common\PaymentMethod
  */
 interface FetchPaymentMethodsResponseInterface extends ResponseInterface
 {
