@@ -320,6 +320,7 @@ abstract class AbstractGateway implements GatewayInterface
      */
     protected function createRequest($class, array $parameters)
     {
+        /** @var AbstractRequest $obj */
         $obj = new $class($this->httpClient, $this->httpRequest);
 
         return $obj->initialize(array_replace($this->getParameters(), $parameters));
