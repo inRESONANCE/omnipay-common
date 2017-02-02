@@ -6,6 +6,11 @@ use Omnipay\Tests\TestCase;
 
 class ItemBagTest extends TestCase
 {
+    /**
+     * @var ItemBag
+     */
+    private $bag;
+
     public function setUp()
     {
         $this->bag = new ItemBag;

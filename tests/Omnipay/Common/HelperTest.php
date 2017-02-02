@@ -57,7 +57,7 @@ class HelperTest extends TestCase
 
     public function testInitializeCallsSetters()
     {
-        $target = m::mock('\Omnipay\Common\CreditCard');
+        $target = m::mock(CreditCard::class);
         $target->shouldReceive('setName')->once()->with('adrian');
         $target->shouldReceive('setNumber')->once()->with('1234');
 
@@ -66,7 +66,7 @@ class HelperTest extends TestCase
 
     public function testInitializeIgnoresInvalidParameters()
     {
-        $target = m::mock('\Omnipay\Common\CreditCard');
+        $target = m::mock(CreditCard::class);
         $target->shouldReceive('setName')->once()->with('adrian');
 
         Helper::initialize($target, array('name' => 'adrian', 'extra' => 'invalid'));

@@ -6,6 +6,8 @@ use Mockery as m;
 use Omnipay\Common\Message\AbstractRequest;
 use Omnipay\Tests\TestCase;
 use Symfony\Component\HttpFoundation\ParameterBag;
+use GuzzleHttp\Client;
+use Symfony\Component\HttpFoundation\Request;
 
 class AbstractGatewayTest extends TestCase
 {
@@ -16,15 +18,15 @@ class AbstractGatewayTest extends TestCase
 
     public function setUp()
     {
-        $this->gateway = m::mock('\Omnipay\Common\AbstractGateway')->makePartial();
+        $this->gateway = m::mock(AbstractGateway::class)->makePartial();
         $this->gateway->initialize();
     }
 
     public function testConstruct()
     {
         $this->gateway = new AbstractGatewayTest_MockAbstractGateway;
-        $this->assertInstanceOf('\GuzzleHttp\Client', $this->gateway->getProtectedHttpClient());
-        $this->assertInstanceOf('\Symfony\Component\HttpFoundation\Request', $this->gateway->getProtectedHttpRequest());
+        $this->assertInstanceOf(Client::class, $this->gateway->getProtectedHttpClient());
+        $this->assertInstanceOf(Request::class, $this->gateway->getProtectedHttpRequest());
         $this->assertSame(array(), $this->gateway->getParameters());
     }
 
@@ -147,7 +149,7 @@ class AbstractGatewayTest extends TestCase
     {
         $this->gateway = new AbstractGatewayTest_MockAbstractGateway;
         $request = $this->gateway->callCreateRequest(
-            '\Omnipay\Common\AbstractGatewayTest_MockAbstractRequest',
+            AbstractGatewayTest_MockAbstractRequest::class,
             array('currency' => 'THB')
         );
 

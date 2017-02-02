@@ -7,16 +7,21 @@ use Omnipay\Tests\TestCase;
 
 class AbstractResponseTest extends TestCase
 {
+    /**
+     * @var AbstractResponse
+     */
+    private $response;
+
     public function setUp()
     {
-        $this->response = m::mock('\Omnipay\Common\Message\AbstractResponse')->makePartial();
+        $this->response = m::mock(AbstractResponse::class)->makePartial();
     }
 
     public function testConstruct()
     {
         $data = array('foo' => 'bar');
         $request = $this->getMockRequest();
-        $this->response = m::mock('\Omnipay\Common\Message\AbstractResponse', array($request, $data))->makePartial();
+        $this->response = m::mock(AbstractResponse::class, array($request, $data))->makePartial();
 
         $this->assertSame($request, $this->response->getRequest());
         $this->assertSame($data, $this->response->getData());
@@ -49,7 +54,7 @@ class AbstractResponseTest extends TestCase
      */
     public function testGetRedirectResponseNotSupported()
     {
-        $this->response = m::mock('\Omnipay\Common\Message\AbstractResponseTest_MockRedirectResponse')->makePartial();
+        $this->response = m::mock(AbstractResponseTest_MockRedirectResponse::class)->makePartial();
         $this->response->shouldReceive('isRedirect')->once()->andReturn(false);
 
         $this->response->getRedirectResponse();
@@ -57,7 +62,7 @@ class AbstractResponseTest extends TestCase
 
     public function testGetRedirectResponseGet()
     {
-        $this->response = m::mock('\Omnipay\Common\Message\AbstractResponseTest_MockRedirectResponse')->makePartial();
+        $this->response = m::mock(AbstractResponseTest_MockRedirectResponse::class)->makePartial();
         $this->response->shouldReceive('getRedirectMethod')->andReturn('GET');
 
         $httpResponse = $this->response->getRedirectResponse();
@@ -68,7 +73,7 @@ class AbstractResponseTest extends TestCase
     public function testGetRedirectResponsePost()
     {
         $data = array('foo' => 'bar', 'key&"' => '<value>');
-        $this->response = m::mock('\Omnipay\Common\Message\AbstractResponseTest_MockRedirectResponse')->makePartial();
+        $this->response = m::mock(AbstractResponseTest_MockRedirectResponse::class)->makePartial();
         $this->response->shouldReceive('getRedirectMethod')->andReturn('POST');
         $this->response->shouldReceive('getRedirectData')->andReturn($data);
 
@@ -85,7 +90,7 @@ class AbstractResponseTest extends TestCase
      */
     public function testGetRedirectResponseInvalidMethod()
     {
-        $this->response = m::mock('\Omnipay\Common\Message\AbstractResponseTest_MockRedirectResponse')->makePartial();
+        $this->response = m::mock(AbstractResponseTest_MockRedirectResponse::class)->makePartial();
         $this->response->shouldReceive('getRedirectMethod')->andReturn('DELETE');
 
         $this->response->getRedirectResponse();
@@ -93,7 +98,7 @@ class AbstractResponseTest extends TestCase
 
     public function testGetTransactionIdNull()
     {
-        $this->response = m::mock('\Omnipay\Common\Message\AbstractResponseTest_MockRedirectResponse')->makePartial();
+        $this->response = m::mock(AbstractResponseTest_MockRedirectResponse::class)->makePartial();
         $this->assertNull($this->response->getTransactionId());
     }
 }

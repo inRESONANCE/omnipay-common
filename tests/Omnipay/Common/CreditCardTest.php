@@ -661,7 +661,7 @@ class CreditCardTest extends TestCase
     }
 
     /**
-     * @expectedException Omnipay\Common\Exception\InvalidCreditCardException
+     * @expectedException \Omnipay\Common\Exception\InvalidCreditCardException
      * @expectedExceptionMessage Card number is invalid
      */
     public function testInvalidLuhn()
@@ -671,7 +671,7 @@ class CreditCardTest extends TestCase
     }
 
     /**
-     * @expectedException Omnipay\Common\Exception\InvalidCreditCardException
+     * @expectedException \Omnipay\Common\Exception\InvalidCreditCardException
      * @expectedExceptionMessage Card number should have 12 to 19 digits
      */
     public function testInvalidShortCard()
